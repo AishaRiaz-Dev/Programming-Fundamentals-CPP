@@ -1,3 +1,11 @@
+/*
+ * PROJECT: Fibonacci Sequence Generator
+ * COURSE: Programming Fundamentals (1st Semester)
+ * CONCEPTS: Iterative Logic, Control Structures, Variable Swapping
+ * AUTHOR: Aisha Riaz
+ * UNIVERSITY: SS-CASE-IT, Islamabad
+ */
+
 #include <iostream>
 using namespace std;
 
@@ -10,8 +18,10 @@ int main() {
 
     cout << "Fibonacci Series: ";
 
+    // Loop to calculate and display each term up to the user-defined limit
     for (int i = 1; i <= numberOfTerms; i++) {
-        // First, print the current term
+        
+        // Handle the first two base cases of the sequence
         if (i == 1) {
             cout << firstTerm << ", ";
             continue;
@@ -21,13 +31,16 @@ int main() {
             continue;
         }
 
-        // Calculate the next term
+        // Logic: The next term is the sum of the previous two terms
         nextTerm = firstTerm + secondTerm;
         
-        // Output formatting: add a comma unless it's the last number
+        // Output formatting: Ternary operator to avoid a trailing comma at the end
         cout << nextTerm << (i == numberOfTerms ? "" : ", ");
 
-        // Update terms for the next iteration
+        /* * Essential State Update:
+         * Move the window forward by updating 'first' and 'second' 
+         * for the next iteration of the loop.
+         */
         firstTerm = secondTerm;
         secondTerm = nextTerm;
     }
